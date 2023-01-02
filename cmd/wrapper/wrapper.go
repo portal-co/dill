@@ -108,6 +108,12 @@ func main() {
 		if !interactive {
 			b := hhh
 			c := os.Getenv("PRTL_CACHE")
+			g, err := os.OpenFile(c+".lock", os.O_EXCL|os.O_CREATE, 0777)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "%s", err.Error())
+				return
+			}
+			defer g.Close()
 			f, err := os.ReadFile(c)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "%s", err.Error())

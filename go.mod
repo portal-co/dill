@@ -4,7 +4,10 @@ go 1.19
 
 require golang.org/x/exp v0.0.0-20221230185412-738e83a70c30
 
-require golang.org/x/crypto v0.0.0-20190611184440-5c40567a22f8 // indirect
+require (
+	go.starlark.net v0.0.0-20221205180719-3fd0dac74452
+	golang.org/x/crypto v0.0.0-20190611184440-5c40567a22f8
+)
 
 require (
 	github.com/btcsuite/btcd v0.20.1-beta // indirect
